@@ -32,7 +32,7 @@ Hyprcraft should not demand attention. The default desktop should prioritize usa
 
 Optional features can be opt-in, independently disableable and justified by a real use case. Minimal does not mean unfinished or difficult to use.
 
-The proposed [Desktop Overview](docs/design/OVERVIEW.md) is the primary navigation interaction. See [Design Principles](docs/design/PRINCIPLES.md), [Quiet Defaults](docs/design/QUIET-DEFAULTS.md) and [Performance](docs/PERFORMANCE.md).
+The proposed [Desktop Overview](docs/design/OVERVIEW.md) is the primary navigation interaction. See the [Minimal Desktop Bar](docs/design/BAR.md), [Design Principles](docs/design/PRINCIPLES.md), [Quiet Defaults](docs/design/QUIET-DEFAULTS.md) and [Performance](docs/PERFORMANCE.md).
 
 ## Community
 
@@ -52,7 +52,7 @@ config/          compositor and shell configuration
 themes/          shared semantic theme values
 presets/         curated, optional configurations
 scripts/         setup, backup, restore and validation
-docs/            architecture, design and development
+docs/            architecture, design and contributor documentation
 ```
 
 ## Current milestone
