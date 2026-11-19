@@ -14,6 +14,16 @@ Hyprcraft should feel polished and intentional while remaining fast, quiet and e
 8. **Memory is a design constraint** — avoid unnecessary resident processes, duplicate services, large caches and heavyweight effects.
 9. **Performance is design** — avoid needless polling, background work and long-running animations.
 10. **Accessible, not merely minimal** — minimalism must not hide controls, weaken contrast or make state unclear.
+11. **Context-aware, not intrusive** — automatic behavior must be explainable, predictable and easy to override.
+
+## Proposed interaction defaults
+
+- The desktop bar uses **auto-hide** behavior rather than occupying screen space permanently.
+- Focus mode is **automatic by default**, using explicit, user-configurable context rules rather than opaque guesses.
+- Manual controls remain available: users can reveal the bar and override or pause automatic focus behavior.
+- The Super-key full-screen overview remains the primary navigation surface.
+
+These are proposed defaults for prototyping and community feedback, not immutable project decisions. See [Quiet defaults](QUIET-DEFAULTS.md).
 
 ## Feature test
 
