@@ -14,6 +14,20 @@ For a feature or significant change, open an issue first. Describe:
 
 Small bug fixes, typo corrections and focused documentation improvements can go directly to a pull request.
 
+## Branch workflow
+
+Keep the repository to **10 branches maximum**, counting protected branches such as `main` and `dev`.
+
+- Use `main` for stable releases and `dev` for integration.
+- Prefer continuing work on an existing relevant feature branch rather than creating a new branch for every small follow-up.
+- Use short-lived feature branches when work is independent and benefits from isolation.
+- Before creating a branch, check the current branch count. Do not create one if it would exceed 10.
+- Delete merged, abandoned or obsolete feature branches when they are no longer needed.
+- Never delete `main` or `dev`; do not reuse either as a feature branch.
+- Keep pull requests focused and target `dev` unless maintainers explicitly decide otherwise.
+
+The branch limit is a repository hygiene rule, not a reason to combine unrelated changes into one branch.
+
 ## Design contributions
 
 Hyprcraft aims for a quiet, minimal default desktop. Persistent UI should be rare and useful. Prefer on-demand interactions and optional modules over adding more always-visible elements.
