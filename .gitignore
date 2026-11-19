@@ -1,0 +1,27 @@
+# Local machine state
+*.log
+*.bak
+*.backup
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Local development artifacts
+.cache/
+.cache-*/
+build/
+dist/
+coverage/
+
+# Editor and IDE state
+.idea/
+.vscode/
+*.code-workspace
+
+# Secrets and machine-specific overrides
+.env
+.env.*
+!.env.example
+.local/
+machine-local/
