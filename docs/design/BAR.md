@@ -1,16 +1,39 @@
 # Minimal desktop bar
 
-> Status: first interaction blueprint. Proposed for prototyping and community feedback; not implemented or finalized.
+> Status: selected visual direction for prototyping. Proposed for community feedback; not implemented or finalized.
 
 ## Purpose
 
 The bar is a temporary status surface, not a dashboard. It should make a small set of useful facts available at a glance, then leave the screen to the user's work.
 
-**Proposed default:** a top-edge, auto-hiding bar.
+**Selected direction:** a full-width, top-edge bar that auto-hides.
+
+The bar should read as one calm, continuous strip attached to the monitor edge—not a floating island, a collection of cards, or a widget dashboard. Its visual polish should come from alignment, typography, spacing and restrained materials rather than decoration.
+
+## Visual structure
+
+Use one full-width horizontal surface divided into three predictable zones:
+
+| Zone | Contents | Alignment |
+|---|---|---|
+| Left | Workspace indicator | Start |
+| Center | Clock and date | True horizontal center |
+| Right | Battery (when present), network, audio and notification indicator | End |
+
+Layout requirements:
+- The bar spans the available width of its monitor.
+- Left and right groups must not push the clock away from the true center; use a layout that centers independently of the side-group widths.
+- Keep the bar visually thin and compact. Exact height, padding and typography are tokenized and will be selected through a running prototype.
+- Use consistent icon size, baseline alignment and spacing.
+- Avoid separate rounded cards or pill backgrounds around each status item.
+- Use a subtle surface distinction from the desktop. Prefer a simple surface with restrained opacity; blur is optional and must never be required.
+- Avoid heavy shadows, thick borders, gradients, decorative separators and excessive corner rounding.
+- Use a subtle divider or tonal change only when it improves grouping.
+- Keep labels readable. Icons may be paired with short text where state would otherwise be ambiguous.
 
 ## Placement and reveal
 
-- Place the default bar along the top edge of each configured monitor.
+- Place the bar along the top edge of each configured monitor.
 - Reveal it when the pointer reaches a small, invisible activation strip at the top edge.
 - Provide a keyboard shortcut as an alternative. The exact chord remains undecided until the full Hyprland key map is reviewed; it must not conflict with the Super-key overview.
 - Do not leave a visible handle, indicator line or permanent panel when hidden.
@@ -53,6 +76,7 @@ Rules:
 - No essential operation may require hover alone.
 - The bar must not steal focus from the active application just because it appears.
 - Menus should not close when the pointer moves from the bar into the menu.
+- The bar is a status/navigation surface, not an application launcher; launching apps belongs in the Super overview.
 
 ## Multi-monitor behavior
 
@@ -69,19 +93,22 @@ Rules:
 - Bound any caches and release menu-specific resources when menus close.
 - The bar must not become a dependency for Hyprland window management.
 - Keep a Waybar fallback available without requiring both bars to run simultaneously.
+- Blur and transparency must have a low-cost fallback and must not increase the baseline dependency set.
 
 ## Prototype acceptance checks
 
-1. Pointer reveal works reliably at different scale factors.
-2. Keyboard reveal works without colliding with the Super overview or existing Hyprland binds.
-3. The bar does not flicker or disappear while interacting with menus.
-4. It never steals focus from the active window on reveal.
-5. It hides after the configured delay and remains fully idle while hidden.
-6. Workspace, clock, battery, network, audio and notification states are accurate.
-7. Missing hardware indicators disappear cleanly.
-8. Reduced-motion mode works.
-9. Multi-monitor and monitor hotplug behavior is predictable.
-10. Idle CPU and memory are measured with the bar hidden and visible.
+1. The bar reads as one continuous full-width strip, not three floating panels.
+2. The clock remains geometrically centered with unequal left/right content.
+3. Pointer reveal works reliably at different scale factors.
+4. Keyboard reveal works without colliding with the Super overview or existing Hyprland binds.
+5. The bar does not flicker or disappear while interacting with menus.
+6. It never steals focus from the active window on reveal.
+7. It hides after the configured delay and remains fully idle while hidden.
+8. Workspace, clock, battery, network, audio and notification states are accurate.
+9. Missing hardware indicators disappear cleanly.
+10. Reduced-motion mode works.
+11. Multi-monitor and monitor hotplug behavior is predictable.
+12. Idle CPU and memory are measured with the bar hidden and visible, with blur disabled and enabled.
 
 ## Open questions
 
@@ -90,5 +117,6 @@ Rules:
 - Which tray applications are essential for the initial Arch profile?
 - Should pin-visible persist across sessions or only until the next logout?
 - What keyboard shortcut feels natural without colliding with the overview?
+- What surface opacity and bar height remain readable without making the bar visually heavy?
 
 Related: [Quiet defaults](QUIET-DEFAULTS.md), [Design principles](PRINCIPLES.md), [Keybindings](../KEYBINDINGS.md), [Performance](../PERFORMANCE.md).
