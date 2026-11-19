@@ -6,25 +6,18 @@ Hyprcraft should make useful controls easy to reach without keeping them permane
 
 ## Desktop bar: auto-hide
 
-**Proposed default:** the primary Quickshell bar auto-hides.
+**Proposed default:** a top-edge Quickshell bar that auto-hides.
 
-Intent:
-- Preserve vertical screen space during focused work.
-- Keep essential status information available on demand.
-- Avoid turning the bar into a dashboard or widget shelf.
+- Reveal on pointer arrival at a small, invisible top-edge activation strip.
+- Provide a keyboard shortcut as an alternative; choose the chord only after checking the full Hyprland key map and avoiding the Super-key overview.
+- Hide after the pointer leaves and a short configurable delay, unless the user is interacting with the bar or one of its menus.
+- Begin testing around a 500 ms hide delay; treat it as a prototype value, not a final standard.
+- Provide a manual pin-visible override.
+- Do not leave a visible handle or permanent panel while hidden.
 
-Prototype behavior:
-- Reveal the bar when the pointer reaches its configured screen edge or when the user invokes its keyboard shortcut.
-- Hide it after the pointer leaves and a short, configurable delay, unless the user is interacting with it.
-- Do not let the bar cover important window controls or interfere with edge gestures.
-- Keep a manual pin/visibility override available.
-- Make the reveal target discoverable without leaving a permanently visible handle.
+The default information groups are workspace state, clock/date, and essential system status (battery when present, network, audio and a notification indicator). No weather, news, CPU/RAM graphs, music controls or decorative widgets by default.
 
-Open questions:
-- Which edge should reveal the bar by default?
-- What delay feels responsive without being distracting?
-- Should the bar reveal on every workspace or be configurable per monitor?
-- Which status items genuinely deserve a place in the minimal bar?
+See [Minimal desktop bar](BAR.md) for placement, interaction, multi-monitor behavior, performance requirements and acceptance checks.
 
 ## Focus mode: automatic
 
