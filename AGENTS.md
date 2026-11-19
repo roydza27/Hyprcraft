@@ -2,15 +2,16 @@
 
 ## Project intent
 
-Hyprcraft is an early, community-shaped Hyprland desktop project for Arch Linux. Its default experience must be quiet, minimal and keyboard-first. Quickshell is the primary shell; Waybar is the fallback.
+Hyprcraft is an early, community-shaped Hyprland desktop project for Arch Linux. Its goals are a polished, coherent interface and fast keyboard-driven workflows, with low idle and active memory use as a core requirement. Quickshell is the primary shell; Waybar is the fallback.
 
 This repository is a shared project, not a request to reproduce one maintainer's personal desktop. Do not treat an individual preference as community consensus.
 
 ## Product and design boundaries
 
-- Default to essentials. Every always-visible element must justify the attention and screen space it consumes.
+- Aim for refined typography, spacing, hierarchy and interaction—not visual imitation of proprietary desktops.
+- Default to essentials. Every always-visible element must justify its attention, screen space and resource cost.
 - Keep optional widgets, visual effects, animations and integrations opt-in and independently disableable.
-- Prefer usable space, clear hierarchy, readable status and predictable interactions over decoration.
+- Prefer usable space, clear hierarchy, readable status and predictable behavior over decoration.
 - Do not add features merely to make the desktop look busy or impressive.
 - Keep compositor behavior and keybindings in `config/hypr/`.
 - Core window management must work without Quickshell.
@@ -18,6 +19,16 @@ This repository is a shared project, not a request to reproduce one maintainer's
 - Document shared design decisions under `docs/design/`.
 - Do not introduce a palette or visual direction without rationale and community discussion.
 - Do not copy third-party configurations wholesale. Track provenance and respect licenses.
+
+## Performance requirements
+
+- Low memory use is a product requirement, not a later optimization.
+- Measure idle session memory separately from overview-open and feature-active memory.
+- Avoid unnecessary resident processes, duplicate daemons, busy polling, large caches and continuously running animations.
+- Prefer event-driven updates and lazy initialization.
+- Release or suspend expensive previews and resources when the overview closes.
+- Record test hardware, software versions and measurement method; never publish unsupported performance claims.
+- Evaluate CPU use, startup time and responsiveness alongside RAM.
 
 ## Community practice
 
@@ -46,4 +57,5 @@ This repository is a shared project, not a request to reproduce one maintainer's
 1. Check existing documentation and conventions.
 2. Validate scripts and configuration with suitable tools where available.
 3. Update docs when behavior, dependencies or configuration contracts change.
-4. Summarize what changed, how it was checked and what remains untested.
+4. For runtime changes, report resource measurements where possible.
+5. Summarize what changed, how it was checked and what remains untested.
