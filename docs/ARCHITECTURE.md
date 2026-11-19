@@ -11,7 +11,7 @@ The default profile should remain small. Optional features must not become manda
 | Component | Owns | Must not own |
 |---|---|---|
 | Hyprland | Windows, workspaces, binds, monitor rules, compositor effects | Desktop panels and application widgets |
-| Quickshell | Minimal primary bar and on-demand overview/shell surfaces | Required window-management logic |
+| Quickshell | Auto-hiding primary bar and on-demand overview/shell surfaces | Required window-management logic |
 | Waybar | Small fallback status bar | A parallel implementation of every shell feature |
 | Supporting tools | Locking, idle, notifications, wallpaper and screenshots | Duplicated policy that conflicts with another component |
 
@@ -28,7 +28,15 @@ The base profile should include only what is needed for a usable session. Dashbo
 - Bound caches and release resources when no longer needed.
 - Measure the compositor, shell and supporting services as separate processes as well as a combined session.
 
-See [Performance](PERFORMANCE.md) for the measurement contract.
+## Quiet interaction defaults
+
+- The Quickshell bar is designed to auto-hide so it does not permanently consume screen space.
+- The bar must remain easy to reveal through a discoverable pointer target and a keyboard shortcut; exact reveal behavior and timing need usability testing.
+- Focus mode is designed to activate automatically from explicit user-configured context rules. Initial candidate signals include selected workspaces or foreground applications, but no rules should be hard-coded before testing.
+- Automatic focus mode must expose its current state, preserve critical alerts and allow immediate manual override or pause.
+- Automatic behavior should be event-driven where possible and must not introduce a continuously polling service.
+
+See [Quiet defaults](design/QUIET-DEFAULTS.md) for the current proposal and open questions, and [Performance](PERFORMANCE.md) for the measurement contract.
 
 ## Directory map
 
