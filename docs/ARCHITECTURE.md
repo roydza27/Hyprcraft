@@ -4,25 +4,31 @@
 
 Hyprcraft is a set of cooperating desktop components, not a monolithic desktop environment. Each component has a clear owner and can fail or be replaced without taking down core window management.
 
+The default profile should remain small. Optional features must not become mandatory dependencies.
+
 ## Component ownership
 
 | Component | Owns | Must not own |
 |---|---|---|
 | Hyprland | Windows, workspaces, binds, monitor rules, compositor effects | Desktop panels and application widgets |
-| Quickshell | Primary bar, launcher surfaces, notifications UI integrations, widgets and shell services | Required window-management logic |
-| Waybar | Minimal fallback bar and status modules | A parallel implementation of the full Quickshell shell |
+| Quickshell | Minimal primary bar and on-demand shell surfaces | Required window-management logic |
+| Waybar | Small fallback status bar | A parallel implementation of every shell feature |
 | Supporting tools | Locking, idle, notifications, wallpaper and screenshots | Duplicated policy that conflicts with another component |
+
+## Default vs optional
+
+The base profile should include only what is needed for a usable session. Dashboards, decorative widgets, elaborate effects, extra panels and integrations belong in optional modules or presets. Optional modules should be independently disableable and should not increase the base dependency set without a clear reason.
 
 ## Directory map
 
 - `config/hypr/`: compositor configuration and keyboard workflows.
-- `config/quickshell/`: QML entry point, components, services and shell surfaces.
+- `config/quickshell/`: QML entry point, minimal shell surfaces and services.
 - `config/waybar/`: optional fallback configuration.
 - `config/launcher/`: launcher configuration and integration.
 - `config/notifications/`: notification daemon configuration.
 - `config/lockscreen/`: lock and idle configuration.
-- `themes/`: semantic design tokens, theme values and assets.
-- `presets/`: curated combinations of supported modules.
+- `themes/`: semantic design tokens and theme values.
+- `presets/`: curated optional combinations.
 - `scripts/`: setup, backup, restore and validation utilities.
 - `docs/`: architecture, design and contributor documentation.
 
@@ -30,14 +36,14 @@ Hyprcraft is a set of cooperating desktop components, not a monolithic desktop e
 
 - Hyprland starts independently of the shell.
 - Quickshell can be restarted without restarting Hyprland.
-- A user can choose the Waybar fallback when Quickshell is unavailable.
-- Optional integrations must degrade gracefully when their programs or services are absent.
-- Machine-specific values (monitor names, paths, device identifiers) must be isolated from shared defaults.
+- A user can choose Waybar when Quickshell is unavailable.
+- Optional integrations degrade gracefully when absent.
+- Machine-specific values are isolated from shared defaults.
 
-## Configuration strategy
+## Community and extensibility
 
-Keep shared defaults in the repository and machine-specific overrides separate. Avoid writing directly into a user's home directory during development. The installer will eventually stage files, back up conflicts and only then activate the selected configuration.
+Prefer stable, documented interfaces over tightly coupled features. New modules should state their dependencies, resource costs, configuration surface and failure behavior. Keep the base profile conservative; let users and community presets add complexity when they need it.
 
 ## Current state
 
-This document describes intended boundaries. The implementation is still at the foundation stage; interfaces and startup behavior will be documented as they become real and tested.
+This describes intended boundaries. The implementation is still at the foundation stage; interfaces and startup behavior will be documented as they become real and tested.
