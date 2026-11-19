@@ -32,7 +32,7 @@ Hyprcraft should not demand attention. The default desktop should prioritize usa
 
 Optional features can exist, but should be opt-in, independently disableable and justified by a real use case. Minimal does not mean unfinished or difficult to use.
 
-See [Design Principles](docs/design/PRINCIPLES.md).
+The proposed [Desktop Overview](docs/design/OVERVIEW.md) is the primary navigation interaction. See also [Design Principles](docs/design/PRINCIPLES.md).
 
 ## Community
 
