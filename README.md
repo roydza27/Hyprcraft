@@ -28,11 +28,11 @@ Other distributions may be considered after the Arch baseline is reliable.
 
 ## Design direction
 
-Hyprcraft should not demand attention. The default desktop should prioritize usable space, legible status information and predictable behavior. No permanently open dashboards, excessive animations, decorative widgets or attention-grabbing effects by default.
+Hyprcraft should not demand attention. The default desktop should prioritize usable space, legible status information and predictable behavior. The bar is proposed to auto-hide; focus mode is proposed to activate automatically from transparent, user-configurable context rules. Neither should become difficult to override.
 
-Optional features can exist, but should be opt-in, independently disableable and justified by a real use case. Minimal does not mean unfinished or difficult to use.
+Optional features can be opt-in, independently disableable and justified by a real use case. Minimal does not mean unfinished or difficult to use.
 
-The proposed [Desktop Overview](docs/design/OVERVIEW.md) is the primary navigation interaction. See also [Design Principles](docs/design/PRINCIPLES.md).
+The proposed [Desktop Overview](docs/design/OVERVIEW.md) is the primary navigation interaction. See [Design Principles](docs/design/PRINCIPLES.md), [Quiet Defaults](docs/design/QUIET-DEFAULTS.md) and [Performance](docs/PERFORMANCE.md).
 
 ## Community
 
