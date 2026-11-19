@@ -1,19 +1,21 @@
 # Hyprcraft
 
-**A modular, keyboard-first desktop for Hyprland.**
+**A quiet, modular desktop for Hyprland. Built in the open, shaped by the community.**
 
-Hyprcraft is a community-maintained desktop configuration project for building a cohesive, beautiful and practical Wayland experience. It combines a carefully structured Hyprland setup with a primary [Quickshell](https://quickshell.org/) shell and a [Waybar](https://github.com/Alexays/Waybar) fallback.
+Hyprcraft is a community project for creating a practical, keyboard-first Wayland desktop. Its default experience aims to stay out of the way: essential information, deliberate interactions and no unnecessary visual noise.
 
-> **Project status:** Foundation stage. Interfaces, configuration contracts and installation behavior are being established. Nothing here should be treated as a stable release yet.
+It starts with Hyprland, Quickshell as the primary shell and Waybar as a lightweight fallback. The project is a shared foundation—not one person's finished desktop or personal aesthetic.
 
-## Goals
+> **Status:** Early foundation. The structure and principles are being established; this is not a stable distribution or ready-to-run installer.
 
-- **Modular:** components can be enabled, replaced or used independently.
-- **Keyboard-first:** predictable shortcuts and efficient window/workspace workflows.
-- **Designed, not decorated:** clear hierarchy, deliberate spacing, restrained motion and consistent visual language.
-- **Reproducible:** documented dependencies, explicit defaults and repeatable setup.
-- **Safe to try:** installation must back up existing configuration and support recovery.
-- **Community-maintained:** readable structure, contribution guidance and reviewable changes.
+## What we're aiming for
+
+- **Quiet by default:** show only what helps; keep widgets, effects and decoration optional.
+- **Keyboard-first:** efficient window and workspace workflows without requiring a busy interface.
+- **Modular:** components can be replaced, disabled or used independently.
+- **Lightweight:** avoid unnecessary services, polling, animations and resource-heavy effects.
+- **Reproducible and safe:** explicit dependencies, backups and a documented recovery path.
+- **Community-shaped:** proposals, discussion and contributions should influence the direction.
 
 ## Initial platform
 
@@ -21,45 +23,42 @@ Hyprcraft is a community-maintained desktop configuration project for building a
 - Compositor: Hyprland
 - Primary shell: Quickshell
 - Fallback bar: Waybar
-- Configuration: Hyprland config + QML + shell scripts
 
-Other distributions may be considered after the Arch experience is reliable.
+Other distributions may be considered after the Arch baseline is reliable.
+
+## Design direction
+
+Hyprcraft should not demand attention. The default desktop should prioritize usable space, legible status information and predictable behavior. No permanently open dashboards, excessive animations, decorative widgets or attention-grabbing effects by default.
+
+Optional features can exist, but should be opt-in, independently disableable and justified by a real use case. Minimal does not mean unfinished or difficult to use.
+
+See [Design Principles](docs/design/PRINCIPLES.md).
+
+## Community
+
+Hyprcraft is intended to be built with its users and contributors, not presented as a completed personal creation. The initial repository is a starting point. Defaults, features and visual decisions are open to discussion and review.
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes.
+- Open an issue to discuss a problem or propose a feature.
+- For substantial changes, explain the user need and trade-offs before implementation.
+- Credit contributors and respect the licenses of upstream work.
+
+The project does not yet have a formal governance structure. Until one is agreed, maintainers should explain decisions publicly and invite discussion rather than treating personal preference as project consensus.
 
 ## Repository layout
 
 ```text
-config/
-  hypr/          compositor configuration
-  quickshell/    primary desktop shell
-  waybar/        fallback status bar
-  launcher/      application launcher integration
-  notifications/ notification daemon configuration
-  lockscreen/    lock and idle configuration
-themes/          visual themes and shared assets
-presets/         curated configuration profiles
-scripts/         install, backup, restore and validation tools
-docs/            architecture, design and contributor docs
+config/          compositor and shell configuration
+themes/          shared semantic theme values
+presets/         curated, optional configurations
+scripts/         setup, backup, restore and validation
+docs/            architecture, design and development
 ```
 
-See [Architecture](docs/ARCHITECTURE.md) for component boundaries and [Development](docs/DEVELOPMENT.md) to get involved.
+## Current milestone
 
-## Principles
-
-1. Hyprland owns window management, workspaces, binds and compositor behavior.
-2. Quickshell owns the primary desktop UI; it must not become a hidden dependency for core window management.
-3. Waybar is a fallback, not a second competing source of desktop state.
-4. Shared design decisions belong in documented tokens and component guidelines.
-5. Scripts must explain what they change; destructive actions require explicit confirmation.
-6. User configuration is never silently overwritten.
-
-## Status
-
-Hyprcraft is not ready for one-command installation. The first milestone is a minimal, working baseline with documented keybindings and a shell that can be started and restarted independently.
-
-## Contributing
-
-Read [Development](docs/DEVELOPMENT.md) before opening a pull request. Small, focused contributions are preferred.
+Establish a minimal Hyprland baseline, preserve core keyboard workflows, define the shell boundaries and agree on design principles. Installation tooling and optional features come later.
 
 ## License
 
-No license has been selected yet. Until one is added, the repository is not granting blanket permission to reuse, modify or redistribute its contents.
+No license has been selected yet. Until one is added, the repository does not grant blanket permission to reuse, modify or redistribute its contents.
