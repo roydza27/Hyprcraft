@@ -23,9 +23,10 @@ Useful tools:
 2. Keep core keybindings usable when the shell is stopped.
 3. Prefer minimal defaults; make additional features opt-in.
 4. Explain the user problem before proposing a new widget or persistent UI element.
-5. Test on a real Hyprland session where possible.
-6. Record tested versions and known limitations.
-7. Do not commit personal monitor layouts, device IDs, credentials or absolute home-directory paths.
+5. Treat memory, CPU and startup cost as design constraints; measure rather than guess.
+6. Test on a real Hyprland session where possible.
+7. Record tested versions and known limitations.
+8. Do not commit personal monitor layouts, device IDs, credentials or absolute home-directory paths.
 
 ## Community contributions
 
@@ -39,7 +40,9 @@ Open an issue before substantial or architecture-changing work so the problem an
 - [ ] Waybar fallback starts without Quickshell.
 - [ ] Missing optional dependencies do not crash the session.
 - [ ] Existing user configuration is backed up before installation changes.
+- [ ] Idle and overview-open RAM are measured on documented hardware.
+- [ ] Optional features do not leave avoidable background processes running.
 
 ## Pull requests
 
-Include the motivation, affected components, dependencies, validation performed and what remains untested. For UI changes, include a screenshot and explain why the element belongs in the default experience rather than an optional module.
+Include the motivation, affected components, dependencies, validation performed and what remains untested. For UI changes, include a screenshot and explain why the element belongs in the default experience rather than an optional module. For runtime changes, include resource measurements when practical.
